@@ -28,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @DiscriminatorColumn(name = "tipo_evento", discriminatorType = DiscriminatorType.STRING)
 @NamedQuery(name = "getEventiSoldOut", query = "SELECT e FROM Evento e WHERE e.partecipazioni = :numeroMassimoPartecipanti")
-
+//@NamedQuery(name = "getEventiPerInvitato", query = "SELECT ep FROM Evento ep WHERE ep.partecipazioni = :numeroMassimoPartecipanti")
 public class Evento {
 	
 	@Id

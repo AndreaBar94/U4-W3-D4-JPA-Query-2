@@ -111,5 +111,10 @@ public class EventoDAO {
 		return query.getResultList();
 	}
 	
+	public List<Evento> getPartecipazioniDaConfermarePerEvento(Evento evento){
+		TypedQuery<Evento> query = em.createQuery("getPartecipazioniDaConfermarePerEvento", Evento.class);
+		return query.getResultList();
+	}
+	
 }
 

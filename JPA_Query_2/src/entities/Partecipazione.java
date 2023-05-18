@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-
+@NamedQuery(name = "getPartecipazioniDaConfermarePerEvento", query = "SELECT e FROM Partecipazione e WHERE e.stato = :DA_CONFERMARE")
 public class Partecipazione {
 	
 	@Id
