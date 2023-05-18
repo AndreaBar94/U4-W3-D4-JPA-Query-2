@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -12,8 +13,10 @@ import javax.persistence.TypedQuery;
 
 import entities.Concerto;
 import entities.Evento;
+import entities.Gara_Di_Atletica;
 import entities.Genere;
 import entities.Partita_Di_Calcio;
+import entities.Persona;
 import entities.TipoEvento;
 
 public class EventoDAO {
@@ -66,6 +69,7 @@ public class EventoDAO {
 		
 	}
 	
+	//ANCORA NON TESTATE
 	public List<Concerto> getConcertiInStreaming(){
 		TypedQuery<Concerto> getAllQuery = em.createQuery("findByName", Concerto.class);
 		return getAllQuery.getResultList();
@@ -92,6 +96,20 @@ public class EventoDAO {
 		return query.getResultList();
 	}
 	
+	public List<Gara_Di_Atletica> getGareDiAtleticaPerVincitore(Persona persona){
+		TypedQuery<Gara_Di_Atletica> query = em.createQuery("getGareDiAtleticaPerVincitore", Gara_Di_Atletica.class);
+		return query.getResultList();
+	}
+	
+	public List<Gara_Di_Atletica> getGareDiAtleticaPerPartecipante(Set<Persona> setAtleti){
+		TypedQuery<Gara_Di_Atletica> query = em.createQuery("getGareDiAtleticaPerPartecipante", Gara_Di_Atletica.class);
+		return query.getResultList();
+	}
+	
+	public List<Evento> getEventiSoldOut(){
+		TypedQuery<Evento> query = em.createQuery("getEventiSoldOut", Evento.class);
+		return query.getResultList();
+	}
 	
 }
 

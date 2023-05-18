@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,6 +27,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @DiscriminatorColumn(name = "tipo_evento", discriminatorType = DiscriminatorType.STRING)
+@NamedQuery(name = "getEventiSoldOut", query = "SELECT e FROM Evento e WHERE e.partecipazioni = :numeroMassimoPartecipanti")
 
 public class Evento {
 	

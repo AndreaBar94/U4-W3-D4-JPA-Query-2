@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,6 +18,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@NamedQuery(name = "getGareDiAtleticaPerVincitore", query = "SELECT g FROM Gara_Di_Atletica g WHERE g.vincitore = :vincitore")
+@NamedQuery(name = "getGareDiAtleticaPerPartecipante", query = "SELECT g FROM Gara_Di_Atletica g WHERE g.setAtleti = :setAtleti")
 
 public class Gara_Di_Atletica extends Evento{
 	
