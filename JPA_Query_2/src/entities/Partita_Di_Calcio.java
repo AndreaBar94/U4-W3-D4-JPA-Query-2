@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @NamedQuery(name = "getPartiteVinteInCasa", query = "SELECT p FROM Partita_Di_Calcio p WHERE p.squadraVincente = :squadraVincente")
-@NamedQuery(name = "getPartiteVinteInTrasferta", query = "SELECT p FROM Partita_Di_Calcio p WHERE p.squadraOspite = :squadraVincente")
+@NamedQuery(name = "getPartiteVinteInTrasferta", query = "SELECT p FROM Partita_Di_Calcio p WHERE p.ospite = :squadraVincente")
 @NamedQuery(name = "getPartitePareggiate", query = "SELECT p FROM Partita_Di_Calcio p WHERE p.squadraVincente IS NULL")
 
 public class Partita_Di_Calcio extends Evento{
